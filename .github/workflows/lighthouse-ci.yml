@@ -1,0 +1,24 @@
+name: Lighthouse CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          urls: ${{ secrets.SITE_URL }}
+          uploadArtifacts: true
+          uploadJson: true
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN || '' }}
+
+# Note: this action requires you to set the repository secret `SITE_URL` to the public URL
+# where the preview or production deployment is available (e.g., https://yourdomain.com).
+# Optionally set `LHCI_GITHUB_APP_TOKEN` for GitHub PR comments.
