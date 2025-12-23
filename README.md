@@ -152,8 +152,6 @@ Notes:
 
 ## License
 
-See repository license (if none, add a `LICENSE` file).
+See repository license 
 
 ---
-
-If you'd like, I can open a small PR with a more detailed CONTRIBUTING.md and a `docs/` folder for audit artifacts and runbooks. Let me know which next step you want me to tackle first.
